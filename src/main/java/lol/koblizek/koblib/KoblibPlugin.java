@@ -1,5 +1,6 @@
 package lol.koblizek.koblib;
 
+import lol.koblizek.koblib.config.ConfigManager;
 import lol.koblizek.koblib.util.DisableAdvertise;
 import lol.koblizek.koblib.util.Koblib;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -19,6 +20,7 @@ public class KoblibPlugin extends JavaPlugin {
     @Override
     public final void onEnable() {
         instance = this;
+        ConfigManager.initialize(this);
         if (!this.getClass().isAnnotationPresent(DisableAdvertise.class))
             getSLF4JLogger().info("Using Koblib v{}", Koblib.VERSION);
         onEnabled();
