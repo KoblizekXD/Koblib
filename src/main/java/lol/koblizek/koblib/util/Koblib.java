@@ -15,4 +15,8 @@ public final class Koblib {
         Bukkit.getScheduler().runTaskAsynchronously(KoblibPlugin.getInstance(), () -> result.set(r.apply()));
         return result.get();
     }
+
+    public static void async(Runnable r) {
+        Bukkit.getScheduler().runTaskAsynchronously(KoblibPlugin.getInstance(), r);
+    }
 }

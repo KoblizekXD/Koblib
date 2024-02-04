@@ -29,7 +29,7 @@ public final class ConfigManager {
         if (configurations.containsKey(name)) {
             return configurations.get(name);
         } else {
-            Configuration configuration = new Configuration(Koblib.async(() -> YamlConfiguration.loadConfiguration(new File(executingPlugin.getDataFolder(), name + ".yml"))));
+            Configuration configuration = new Configuration(new File(executingPlugin.getDataFolder(), name + ".yml"), Koblib.async(() -> YamlConfiguration.loadConfiguration(new File(executingPlugin.getDataFolder(), name + ".yml"))));
             configurations.put(name, configuration);
             return configuration;
         }
